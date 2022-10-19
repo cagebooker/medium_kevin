@@ -1,0 +1,14 @@
+<%= form_for story do |f| %>
+    <div class="field">
+        <%= f.label :title, "標題", class:'label' %>
+        <%= f.text_field :title, class: 'input is-primary' %>
+    </div>
+    <div class="field">
+        <%= f.label :content, '內文', class:'label' %>
+        <%= f.text_area :content, rows:10, class: 'textarea is-primary' %>
+    </div>
+    <div class="field">
+        <%= f.submit '儲存草稿', class:'button' %>
+        <%= f.submit '發布文章', class:'button is-primary' %>
+    </div>
+<% end %>
