@@ -26,7 +26,8 @@ class StoriesController < ApplicationController
         end
     end
     def destroy
-
+        @story.destroy
+        redirect_to stories_path
     end
     private
     def find_story

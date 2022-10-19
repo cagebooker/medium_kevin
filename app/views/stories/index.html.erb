@@ -1,14 +1,17 @@
- <h1 class="title">故事列表</h1>
+<div class="section">
+    <h1 class="title">故事列表</h1>
 
-<% @stories.each do |story|%>
-    <div class="content">
-        <h3 class="title"><%= story.title %> </h2>
-        <p><%= truncate story.content, length: 100 %></p>
-        <p>
-            最後編輯時間：<%= time_ago_in_words(story.updated_at) %>
-            <%= link_to '編輯', edit_story_path(story), class: 'button is-small is-text' %>
-            <%= link_to '刪除', story_path(story),method: :delete, class: 'button is-small', data: {confirm:"確定要刪除此文章嗎？"} %>
-        </p>
-    </div>
-    <hr>
-<% end %>
+    <% @stories.each do |story|%>
+        <div class="content">
+            <h3 class="title"><%= story.title %> </h2>
+            <p><%= truncate story.content, length: 100 %></p>
+            <p>
+                最後編輯時間：<%= time_ago_in_words(story.updated_at) %>
+                <%= link_to '編輯', edit_story_path(story), class: 'button is-small is-text' %>
+                <%= link_to '刪除', story_path(story),method: :delete, class: 'button is-small', data: {confirm:"確定要刪除此文章嗎？"} %>
+            </p>
+        </div>
+        <hr>
+    <% end %>
+</div>
+
