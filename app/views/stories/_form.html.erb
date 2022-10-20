@@ -1,14 +1,22 @@
 <%= form_for story do |f| %>
     <div class="field">
+
         <%= f.label :title, "標題", class:'label' %>
-        <%= f.text_field :title, class: 'input is-primary' %>
+        <% if story.errors.any? %>
+          <%= f.text_field :title, class: 'input is-danger' %>
+          <p class="has-text-danger"><%= story.errors.full_messages.to_sentence %></p>
+        <% else %>
+          <%= f.text_field :title, class: 'input is-primary' %>
+        <% end %>
     </div>
     <div class="field">
         <%= f.label :content, '內文', class:'label' %>
         <%= f.text_area :content, rows:10, class: 'textarea is-primary' %>
     </div>
     <div class="field">
-        <%= f.submit '儲存草稿', name: 'save_as_draft', class:'button' %>
-        <%= f.submit '發布文章', name: 'publish',class:'button is-primary' %>
+        <%= f.submit '更新文章', name: 'unchange', class:'button' if story.may_unpublish? %>
+        <%= f.submit '儲存草稿', name: 'save_as_draft', class:'button' if story.may_publish? %>
+        <%= f.submit '發布文章', name: 'publish',class:'button is-primary' if story.may_publish? %>
+        <%= f.submit '下架文章', name: 'unpublish',class:'button is-danger' if story.may_unpublish? %>
     </div>
 <% end %>
