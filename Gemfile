@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'webpacker', '~> 5.4', '>= 5.4.3'
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 gem 'aasm', '~> 5.4'
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 gem 'babosa', '~> 2.0'

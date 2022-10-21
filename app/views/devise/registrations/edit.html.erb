@@ -15,7 +15,7 @@
             </div>
             <div class="field">
               <%= f.label :intro, "我的簡介", class:"label" %>
-              <%= f.text_area :intro, class:"textarea", rows:11 %>
+              <%= f.text_area :intro, class:"textarea", rows:12 %>
             </div>
           </div>
           <div class="column is-4">
@@ -23,7 +23,20 @@
               <%= f.label :email, "註冊信箱 (不可修改)", class:"label" %>
               <%= f.email_field :email, readonly: true, autocomplete: "email", class:"input" %>
             </div>
+            <div class="field">
+              <div class="columns">
+                <div class="column is-6">
+                  <%= f.label :avatar, "大頭照", class:"label" %>
+                  <%= f.file_field :avatar, class:"" %>
+                </div>
+                <div class="column is-6 ml-2 mt-1">
+                  <%= avatar(current_user,50) %>
+                </div>
+              </div>
 
+
+
+            </div>
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
             <% end %>

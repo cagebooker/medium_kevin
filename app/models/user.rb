@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :stories
+  validates :username, presence: true, uniqueness: true
+
+  # active_storage
+  has_one_attached :avatar
 end
