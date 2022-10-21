@@ -36,12 +36,10 @@
 
         <div class="actions">
           <%= f.submit "更新", class:'button mr-4' %>
-          <%= link_to "回到上一頁", :back, class:'button has-text-primary-dark' %>
-          <%= button_to "刪除目前帳號", registration_path(resource_name),class:"button has-text-danger-dark", data: { confirm: "Are you sure?" }, method: :delete %>
-
         </div>
       <% end %>
-
+      <%= link_to "回到上一頁", :back, class:'button has-text-primary-dark' %>
+      <%= button_to "刪除目前帳號", registration_path(resource_name),class:"button has-text-danger-dark", data: { confirm: "Are you sure?" }, method: :delete %>
 
 
 
