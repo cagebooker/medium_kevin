@@ -1,6 +1,10 @@
 <%= form_for story do |f| %>
     <div class="field">
-
+        <div class="field">
+          <%= image_tag story.cover_image.variant(resize: '150x150') if story.cover_image.attached? %>
+          <%= f.label :cover_image, '封面圖片', class:'label' %>
+          <%= f.file_field :cover_image %>
+        </div>
         <%= f.label :title, "標題", class:'label' %>
         <% if story.errors.any? %>
           <%= f.text_field :title, class: 'input is-danger' %>

@@ -6,13 +6,18 @@ class Story < ApplicationRecord
     belongs_to :user
     validates_presence_of :title
 
+    has_one_attached :cover_image
+    # scope
     default_scope { where(deleted_at: nil) }
+    scope :published_stories, -> {where(status:'published')}
+
+
     def story
         update(deleted_at: Time.now)
     end
 
     # aasm setup
-    aasm(column: 'status') do
+    aasm(column: 'status', no_direct_assignment: true) do
       state :draft, initial: true
       state :published, :banned
 
