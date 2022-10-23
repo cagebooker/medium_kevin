@@ -1,4 +1,5 @@
 class Story < ApplicationRecord
+    acts_as_paranoid
     include AASM
     extend FriendlyId
     friendly_id :slug_candidate, use: :slugged
