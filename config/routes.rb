@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :stories
+  resources :stories do
+    resources :comments, only: [:create]
+  end
   root "pages#index"
 
   #首頁文章的連結 /@kevingu/文章-123

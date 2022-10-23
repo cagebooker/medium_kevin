@@ -5,17 +5,19 @@ class Story < ApplicationRecord
     friendly_id :slug_candidate, use: :slugged
 
     belongs_to :user
+    has_many :comments
     validates_presence_of :title
 
     has_one_attached :cover_image
+
     # scope
-    default_scope { where(deleted_at: nil) }
+    # default_scope { where(deleted_at: nil) } 被 paranoid 取代
     scope :published_stories, -> { published.with_attached_cover_image.order(created_at: :desc).includes(:user)}
 
-
-    def story
-        update(deleted_at: Time.now)
-    end
+    # instance method
+    # def story
+    #     update(deleted_at: Time.now)
+    # end
 
     # aasm setup
     aasm(column: 'status', no_direct_assignment: true) do
