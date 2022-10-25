@@ -11,6 +11,14 @@ Rails.application.routes.draw do
   end
   root "pages#index"
 
+
+  # follow /users/:id/follow
+  resources :users, only: [] do
+    member do
+      post :follow
+    end
+  end
+
   #首頁文章的連結 /@kevingu/文章-123
   get '@:username/:story_id', to: 'pages#show', as: 'story_page'
   #他人看作者的所有文章列表
