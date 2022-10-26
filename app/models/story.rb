@@ -4,8 +4,11 @@ class Story < ApplicationRecord
     extend FriendlyId
     friendly_id :slug_candidate, use: :slugged
 
+    # relationship
     belongs_to :user
     has_many :comments
+    has_many :bookmarks
+
     validates_presence_of :title
 
     has_one_attached :cover_image

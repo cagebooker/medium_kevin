@@ -3,21 +3,28 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :stories do
-    member do
-      post :clap
-    end
-    resources :comments, only: [:create]
-  end
   root "pages#index"
 
+  resources :stories do
+    resources :comments, only: [:create]
+  end
 
-  # follow /users/:id/follow
-  resources :users, only: [] do
-    member do
-      post :follow
+  # api
+  # follow /api/users/:id/follow
+  namespace :api do
+    resources :users, only: [] do
+      member do
+        post :follow
+      end
+    end
+    resources :stories, only: [] do
+      member do
+        post :clap
+        post :bookmark
+      end
     end
   end
+
 
   #首頁文章的連結 /@kevingu/文章-123
   get '@:username/:story_id', to: 'pages#show', as: 'story_page'
