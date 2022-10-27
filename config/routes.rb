@@ -27,6 +27,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only:[] do
+    collection do
+      get :pricing
+      get :payment
+      post :pay
+    end
+  end
 
   #首頁文章的連結 /@kevingu/文章-123
   get '@:username/:story_id', to: 'pages#show', as: 'story_page'

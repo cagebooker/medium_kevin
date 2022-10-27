@@ -34,6 +34,8 @@ gem 'aasm', '~> 5.4'
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 gem 'babosa', '~> 2.0'
 gem 'paranoia', '~> 2.6'
+gem 'figaro', '~> 1.2'
+gem "braintree", "~> 4.9.0"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
